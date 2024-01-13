@@ -10,7 +10,7 @@ export function Title() {
 }
 export function Description() {
     return (
-        <div className="grid grid-cols-2 w-1/4 mt-20 text-zinc-300 ">
+        <div className="grid grid-cols-2 w-3/4 mt-20 text-zinc-300 ">
             <div>
                 2023
             </div>
@@ -39,7 +39,7 @@ export function Illustration() {
                 alt="Picture of the author"
                 className="rounded-r-lg"
             />
-            <div>
+            <div className="pl-10">
                 <div className="font-bold ">Andrianampoinimerina Imboasalama</div>
                 <div className="text-gray-400">
                     Great King of Madagascar <br/>1787-1810
@@ -49,3 +49,4 @@ export function Illustration() {
 
     )
 }
+

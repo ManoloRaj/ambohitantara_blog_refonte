@@ -1,20 +1,37 @@
-import * as React from "react"
-import { Card, CardContent } from "../ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "../ui/carousel"
-import andrianampoinimerina from "../../assets/andrianampoinimerina.webp"
+import React from "react"
+import illustration_1 from "../../assets/illustration_1.jpg"
+import illustration_2 from "../../assets/illustration_2.jpg"
+import illustration_3 from "../../assets/illustration_3.jpg"
 import Image from "next/image";
 
 export function CarouselArticle() {
+
   return (
-    <div className="w-full h-full">
-      <div className="mr-auto ml-auto mt-[10%] w-4/5 overflow-hidden">
-        <Image
-          alt=""
-          src={andrianampoinimerina}
-          className="w-full "
-        />
+    <>
+      <div className="carousel">
+        <div className="carousel_slide">
+          <Image
+            alt=""
+            src={illustration_3}
+            className="slide"
+          />
+        </div>
+        <div className="carousel_slide">
+          <Image
+            alt=""
+            src={illustration_2}
+            className="slide"
+          />
+        </div>
+        <div className="carousel_slide">
+          <Image
+            alt=""
+            src={illustration_1}
+            className="slide"
+          />
+        </div>
       </div>
-    </div>
+    </>
 
   )
 }

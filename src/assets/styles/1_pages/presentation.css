@@ -28,7 +28,7 @@
 }
 .presentation .left .illustration {
   width: 30vw;
-  margin-top: 30%;
+  margin-top: 20%;
   display: grid;
   grid-template-columns: 50% auto;
 }

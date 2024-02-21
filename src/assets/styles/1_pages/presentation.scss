@@ -24,6 +24,11 @@
                 .year {
                     color: variables.$dark-white-color;
                 }
+                .little_description{
+                    .little_label{
+                        font-size: 20px;
+                    }
+                }
             }
         }
         .illustration {
@@ -45,6 +50,19 @@
                         color: variables.$dark-white-color;
                     }
                 }
+            }
+        }
+
+        .detail {
+            margin: 10%;
+            .title_detail {
+                font-size: 40px;
+            }
+            .content_detail {
+                margin-top: 10%;
+                font-size: 14px;
+                width: 80%;
+                text-align: justify;
             }
         }
     }
@@ -75,6 +93,19 @@
             grid-template-columns: auto;
             padding-bottom: 200px;
             transition: 1s;
+            .legend {
+                position: fixed;
+                bottom: 0;
+                text-align: center;
+                padding: 50px;
+                width: 100%;
+                z-index: 1;
+                font-size: 35px;
+                backdrop-filter: blur(2px);
+                background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(60, 49, 49, 0.644), rgb(53, 33, 33));
+                font-family: Baskerville;
+                letter-spacing: 3px;
+            }
             .carousel_slide {
                 border: 2px solid variables.$carousel-border-color;
                 border-radius: 10px;
@@ -85,6 +116,7 @@
                 display: flex;
                 background: rgba(0, 0, 0, 0.203);
                 backdrop-filter: blur(5px);
+                z-index: 2;
                 cursor: pointer;
                 .slide {
                     margin-top: auto;

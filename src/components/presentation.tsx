@@ -1,14 +1,22 @@
 "use client";
-import { CarouselArticle } from "./home/carouselArticle";
+import { CarouselArticle, articleInterface } from "./home/carouselArticle";
 import { Description, Illustration, Title } from "./home/title";
 import "../assets/styles/1_pages/presentation.css";
 import fleche from "../assets/fleche.png";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { article_data } from "../services/article_data";
+import { DescriptionDetail, TitleDetail } from "./detail/titleDetail";
+import { TransitionFunction } from "./detail/transition";
 
 
 export default function Presentation() {
+    const [detailView, setDetailView] = useState({
+        activate: false,
+        title: "",
+        description: ""
+    });
+
     const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const carouselRef = useRef<HTMLDivElement>(null);
@@ -39,40 +47,61 @@ export default function Presentation() {
         });
     };
 
-
+    const handleClickItem = (d: articleInterface) => {
+        setDetailView({
+            activate: !detailView.activate,
+            title: d.legend,
+            description: d.description
+        })
+    }
 
     return (
-        <div className="presentation">
-            <div className="left">
-                <div className="title">
-                    <Title />
-                    <Description />
+        <>
+            <TransitionFunction isTransit={detailView.activate} />
+            <div className="presentation">
+                <div className="left">
+                    {!detailView.activate ? (
+                        <>
+                            <div className="title">
+                                <Title />
+                                <Description />
+                            </div>
+                            <Illustration />
+                        </>
+
+                    ) : (
+                        <div className="detail">
+                            <TitleDetail title={detailView.title} />
+                            <DescriptionDetail description={detailView.description} />
+                        </div>
+                    )}
+
                 </div>
-                <Illustration />
-            </div>
-            <div className="right">
-                <div className="control">
-                    <Image
-                        src={fleche}
-                        width={170}
-                        alt="top"
-                        className="but"
-                        onClick={handleScrollTop}
-                    />
-                    <Image
-                        src={fleche}
-                        width={170}
-                        alt="bottom"
-                        style={{ transform: "rotate(180deg)" }}
-                        className="but"
-                        onClick={handleScrollBottom}
-                    />
-                </div>
-                <div ref={carouselRef}>
-                    <CarouselArticle article_list={article_data}/>
+                <div className="right">
+                    <div className="control">
+                        <Image
+                            src={fleche}
+                            width={170}
+                            alt="top"
+                            className="but"
+                            onClick={handleScrollTop}
+                        />
+                        <Image
+                            src={fleche}
+                            width={170}
+                            alt="bottom"
+                            style={{ transform: "rotate(180deg)" }}
+                            className="but"
+                            onClick={handleScrollBottom}
+                        />
+                    </div>
+                    <div ref={carouselRef}>
+                        <CarouselArticle article_list={article_data} handleClickItem={handleClickItem} />
+                    </div>
                 </div>
             </div>
 
-        </div>
+        </>
     )
 }
+

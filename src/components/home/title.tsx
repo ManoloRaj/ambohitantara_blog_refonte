@@ -13,7 +13,7 @@ export function Title() {
 export function Description() {
     return (
         <div className="legend_title">
-            <div>
+            <div className="year">
                 2023
             </div>
             <div>
@@ -41,12 +41,13 @@ export function Illustration() {
                 alt="Picture of the author"
                 className="image_illustration"
             />
-            <div className="">
-                <div className="">
+            <div className="description">
+                <div className="title_description">
                     <strong>Andrianampoinimerina Imboasalama</strong>
                 </div>
-                <div className="">
-                    Great King of Madagascar <br />1787-1810
+                <div className="content">
+                    Great King of Madagascar <br />
+                    <div className="year">1787-1810</div>
                 </div>
             </div>
         </div>

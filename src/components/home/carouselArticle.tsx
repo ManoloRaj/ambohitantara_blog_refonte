@@ -1,37 +1,23 @@
 import React from "react"
-import illustration_1 from "../../assets/illustration_1.jpg"
-import illustration_2 from "../../assets/illustration_2.jpg"
-import illustration_3 from "../../assets/illustration_3.jpg"
-import Image from "next/image";
 
-export function CarouselArticle() {
+import Image, { StaticImageData } from "next/image";
 
-  return (
-    <>
-      <div className="carousel">
-        <div className="carousel_slide">
-          <Image
-            alt=""
-            src={illustration_3}
-            className="slide"
-          />
-        </div>
-        <div className="carousel_slide">
-          <Image
-            alt=""
-            src={illustration_2}
-            className="slide"
-          />
-        </div>
-        <div className="carousel_slide">
-          <Image
-            alt=""
-            src={illustration_1}
-            className="slide"
-          />
-        </div>
-      </div>
-    </>
-
-  )
+export interface articlePropsInterface {
+  article_list: Array<{
+    id: number,
+    image_url: StaticImageData
+  }>
 }
+export const CarouselArticle: React.FC<articlePropsInterface> = ({ article_list }) => {
+  return (
+    <div className="carousel" id="scroll_view">
+      {article_list.map((d, _index) => (
+        <div key={_index} className="carousel_slide">
+          <Image alt="" src={d.image_url} className="slide" id={`slide_${_index}`} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+

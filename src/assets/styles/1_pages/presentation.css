@@ -20,31 +20,62 @@
   grid-template-columns: 15% auto;
   width: 30vw;
 }
+.presentation .left .title .legend_title .year {
+  color: rgba(255, 255, 255, 0.584);
+}
 .presentation .left .illustration {
-  width: 28vw;
+  width: 30vw;
   margin-top: 30%;
   display: grid;
   grid-template-columns: 50% auto;
 }
 .presentation .left .illustration .image_illustration {
   border-radius: 0 10px 10px 0;
+  box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.551);
+}
+.presentation .left .illustration .description {
+  display: grid;
+  grid-template-rows: 50% auto;
+}
+.presentation .left .illustration .description .content .year {
+  color: rgba(255, 255, 255, 0.584);
+}
+.presentation .right .control {
+  position: absolute;
+  left: 40%;
+  top: 0;
+  transform: scale(0.5);
+  cursor: pointer;
+}
+.presentation .right .control .but {
+  border: solid black 3px;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  margin: 20px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.675);
+  transition: 0.25s;
+}
+.presentation .right .control .but:hover {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0);
 }
 .presentation .right .carousel {
   height: 100vh;
   overflow-y: scroll;
   display: grid;
   grid-template-columns: auto;
-  padding-bottom: 100px;
+  padding-bottom: 200px;
+  transition: 1s;
 }
 .presentation .right .carousel .carousel_slide {
   border: 2px solid white;
   border-radius: 10px;
-  height: 70vh;
+  height: 80vh;
   width: 30vw;
   overflow: hidden;
   margin: 10%;
   display: flex;
-  background: rgba(255, 255, 255, 0);
+  background: rgba(0, 0, 0, 0.203);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   cursor: pointer;
@@ -57,4 +88,12 @@
 }
 .presentation .right .carousel .carousel_slide:hover .slide {
   transform: scale(1.5);
+}
+
+@media only screen and (max-width: 500px) {
+  .presentation {
+    overflow: scroll;
+    width: 100vw;
+    height: 100vh;
+  }
 }/*# sourceMappingURL=presentation.css.map */

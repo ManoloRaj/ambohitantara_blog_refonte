@@ -88,7 +88,7 @@
         .carousel {
             // border: 2px solid black;
             height: 100vh;
-            overflow-y: scroll;
+            overflow-y: hidden;
             display: grid;
             grid-template-columns: auto;
             padding-bottom: 200px;

@@ -78,7 +78,7 @@
             .carousel_slide {
                 border: 2px solid variables.$carousel-border-color;
                 border-radius: 10px;
-                height: 70vh;
+                height: 80vh;
                 width: 30vw;
                 overflow: hidden;
                 margin: 10%;
@@ -102,8 +102,10 @@
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 500px) {
     .presentation {
-        // display: flex;
+        overflow: scroll;
+        width: 100vw;
+        height: 100vh;
     }
 }

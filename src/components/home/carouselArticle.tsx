@@ -1,16 +1,21 @@
 import React from "react"
-import { article_data } from "../../services/article_data";
-import Image from "next/image";
 
+import Image, { StaticImageData } from "next/image";
 
-export const CarouselArticle = () => {
+export interface articlePropsInterface {
+  article_list: Array<{
+    id: number,
+    image_url: StaticImageData
+  }>
+}
+export const CarouselArticle: React.FC<articlePropsInterface> = ({ article_list }) => {
   return (
     <div className="carousel" id="scroll_view">
-      {article_data.map((d, _index) => (
-          <div className="carousel_slide">
-            <Image alt="" src={d.image_url} className="slide" id={`slide_${_index}`} />
-          </div>
-        ))}
+      {article_list.map((d, _index) => (
+        <div className="carousel_slide">
+          <Image alt="" src={d.image_url} className="slide" id={`slide_${_index}`} />
+        </div>
+      ))}
     </div>
   );
 };

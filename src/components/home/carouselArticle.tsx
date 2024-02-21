@@ -12,7 +12,7 @@ export const CarouselArticle: React.FC<articlePropsInterface> = ({ article_list 
   return (
     <div className="carousel" id="scroll_view">
       {article_list.map((d, _index) => (
-        <div className="carousel_slide">
+        <div key={_index} className="carousel_slide">
           <Image alt="" src={d.image_url} className="slide" id={`slide_${_index}`} />
         </div>
       ))}

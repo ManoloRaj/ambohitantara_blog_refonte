@@ -18,8 +18,8 @@ export function TransitionFunction({
         <>
             {loading ? (
                 <div className="transition" >
-                    <div class="spinner-container">
-                        <div class="spinner"></div>
+                    <div className="spinner-container">
+                        <div className="spinner"></div>
                     </div>
                 </div>
             ) : (null)

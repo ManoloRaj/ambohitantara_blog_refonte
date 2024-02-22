@@ -16,15 +16,15 @@ export function Description() {
             <div className="year">
                 2023
             </div>
-            <div className="little_description">
-                <div className="text">
+            <div>
+                <div className="">
                     Create in April 2023,
                     Ambohitantara is a Blog that
                     share history of Madagascar
                     especially in Imerina
                 </div>
 
-                <div className="little_label">
+                <div className="">
                     HOME
                 </div>
             </div>

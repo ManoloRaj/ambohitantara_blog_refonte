@@ -6,15 +6,17 @@ import fleche from "../assets/fleche.png";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { article_data } from "../services/article_data";
-import { DescriptionDetail, TitleDetail } from "./detail/titleDetail";
+import { AuthorDetail, DescriptionDetail, TitleDetail } from "./detail/titleDetail";
 import { TransitionFunction } from "./detail/transition";
 
 
 export default function Presentation() {
+    
     const [detailView, setDetailView] = useState({
         activate: false,
         title: "",
-        description: ""
+        description: "",
+        author: ""
     });
 
     const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(null);
@@ -51,7 +53,8 @@ export default function Presentation() {
         setDetailView({
             activate: !detailView.activate,
             title: d.legend,
-            description: d.description
+            description: d.description,
+            author: d.author
         })
     }
 
@@ -73,6 +76,7 @@ export default function Presentation() {
                         <div className="detail">
                             <TitleDetail title={detailView.title} />
                             <DescriptionDetail description={detailView.description} />
+                            <AuthorDetail author={detailView.author} />
                         </div>
                     )}
 
@@ -94,9 +98,23 @@ export default function Presentation() {
                             className="but"
                             onClick={handleScrollBottom}
                         />
+                        {detailView.activate &&
+                            <Image
+                                src={fleche}
+                                width={170}
+                                alt="bottom"
+                                style={{ transform: "rotate(-90deg) translateX(-100px)" }}
+                                className="but"
+                                onClick={() => setDetailView((prev_value) => ({ ...prev_value, activate: false }))}
+                            />
+                        }
                     </div>
                     <div ref={carouselRef}>
-                        <CarouselArticle article_list={article_data} handleClickItem={handleClickItem} />
+                        <CarouselArticle
+                            article_list={article_data}
+                            handleClickItem={handleClickItem}
+                            isClickable={!detailView.activate}
+                        />
                     </div>
                 </div>
             </div>

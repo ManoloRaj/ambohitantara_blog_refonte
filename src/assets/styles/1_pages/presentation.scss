@@ -24,8 +24,8 @@
                 .year {
                     color: variables.$dark-white-color;
                 }
-                .little_description{
-                    .little_label{
+                .little_description {
+                    .little_label {
                         font-size: 20px;
                     }
                 }
@@ -55,13 +55,18 @@
 
         .detail {
             margin: 10%;
+            width: 70%;
             .title_detail {
                 font-size: 40px;
             }
             .content_detail {
                 margin-top: 10%;
                 font-size: 14px;
-                width: 80%;
+                text-align: justify;
+            }
+            .author_detail{
+                margin-top: 5%;
+                font-size: 14px;
                 text-align: justify;
             }
         }

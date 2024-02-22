@@ -12,8 +12,16 @@ function DescriptionDetail({ description }) {
         </div>
     )
 }
+function AuthorDetail({ author }) {
+    return (
+        <div className="author_detail">
+            {author}
+        </div>
+    )
+}
 
 export {
     TitleDetail,
-    DescriptionDetail
+    DescriptionDetail,
+    AuthorDetail
 };

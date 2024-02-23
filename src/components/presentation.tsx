@@ -99,10 +99,9 @@ export default function Presentation() {
                 </div>
                 <div className="right">
                     <div className="control">
-                        <Image src={fleche} width={170} alt="top" className="but" onClick={handleScrollTop}
-                        />
-                        <Image src={fleche} width={170} alt="bottom" style={{ transform: "rotate(180deg)" }} className="but" onClick={handleScrollBottom}
-                        />
+                        <Image src={fleche} width={170} alt="top" className="but" onClick={handleScrollTop}/>
+                        <Image src={fleche} width={170} alt="bottom" style={{ transform: "rotate(180deg)" }} className="but" onClick={handleScrollBottom}/>
+                        
                         {detailView.activate &&
                             <Image src={fleche} width={170} alt="bottom" style={{ transform: "rotate(-90deg) translateX(-100px)" }} className="but"
                                 onClick={() => setDetailView((prev_value) => ({ ...prev_value, activate: false }))} />

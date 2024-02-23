@@ -4,28 +4,28 @@ import Image, { StaticImageData } from "next/image";
 
 export interface articleInterface {
   id: number,
-  image_url: StaticImageData,
-  legend: string,
+  poster: StaticImageData,
+  title: string,
   description: string,
   author: string
 }
 
 export interface carouselArticlePropsInterface {
-  article_list: Array<articleInterface>,
+  article_list: Array<articleInterface> | null,
   handleClickItem: any | null,
-  isClickable: boolean
+  isDetail: boolean
 }
 
-export interface legendPropsInterface {
-  legend: string
+export interface titlePropsInterface {
+  title: string
 }
 
-const Legend: React.FC<legendPropsInterface> = ({
-  legend
+const Legend: React.FC<titlePropsInterface> = ({
+  title
 }) => {
   return (
     <div className="legend">
-      {legend}
+      {title}
     </div>
   )
 }
@@ -33,17 +33,23 @@ const Legend: React.FC<legendPropsInterface> = ({
 export const CarouselArticle: React.FC<carouselArticlePropsInterface> = ({
   article_list,
   handleClickItem,
-  isClickable
+  isDetail
 }) => {
   return (
-    <div className="carousel" id="scroll_view">
-      {article_list.map((d, _index) => (
-        <div key={_index} className="carousel_slide" onClick={() => isClickable && handleClickItem(d)}>
-          <Image alt="" src={d.image_url} className="slide" id={`slide_${_index}`} />
-          <Legend legend={d.legend} />
+    <>
+      {
+        article_list !== null &&
+        article_list.length > 0 &&
+        <div className="carousel" id="scroll_view">
+          {article_list.map((d, _index) => (
+            <div key={_index} className="carousel_slide" onClick={() => isDetail && handleClickItem(d)}>
+              <Image width="300" height="300" alt="" src={d.poster || ""} className="slide" id={`slide_${_index}`} />
+              <Legend title={d.title} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      }
+    </>
   );
 };
 

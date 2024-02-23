@@ -1,6 +1,7 @@
 @use "../4_variables/variables";
 
 .presentation {
+    color: variables.$general-text-color;
     background: url("../../background.png");
     background-repeat: no-repeat;
     background-size: cover;

@@ -6,7 +6,7 @@ import fleche from "../assets/fleche.png";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { article_data } from "../services/article_data";
-import { AuthorDetail, DescriptionDetail, TitleDetail } from "./detail/titleDetail";
+import { AuthorDetail, DescriptionDetail, TitleDetail } from "./detail/title_detail";
 import { TransitionFunction } from "./detail/transition";
 import { getArticleList } from "@/services/article.services";
 

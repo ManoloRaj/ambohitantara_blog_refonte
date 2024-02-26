@@ -4,7 +4,7 @@ import illustration_2 from "../../assets/illustration_2.jpg";
 import illustration_3 from "../../assets/illustration_3.jpg";
 import { useEffect, useState } from "react";
 import { getArticleList } from "@/services/article.services";
-import { articleInterface } from "@/components/home/carouselArticle";
+import { articleInterface } from "@/components/home/carousel_article";
 
 interface itemArticleInterface {
     active: boolean,
@@ -17,7 +17,6 @@ export function ArticleList() {
         getArticleList()
             .then((articles) => {
                 setArticleList(articles);
-                console.log('Article List:', articles);
             })
             .catch((error) => {
                 console.error('Error fetching article list:', error);

@@ -1,6 +1,7 @@
-import { articleInterface } from "@/components/home/carouselArticle";
+import { articleInterface } from "@/components/home/carousel_article";
 import supabase from "../lib/supabaseClient";
 import { v4 as uuidv4 } from "uuid";
+import { BlockList } from "net";
 
 export interface articleToAddInterface {
     id?: string,
@@ -21,21 +22,22 @@ export async function getArticleList(): Promise<Array<articleInterface> | null> 
     return data;
 }
 
-export async function setArticle(props: articleToAddInterface) {
+export async function setArticle(props: articleToAddInterface):Promise<boolean> {
     const { title, author, description, image } = props;
-    
+
     if (title && author && description && image) {
-        console.log("hhh",typeof image[0])
         const id_article: string = uuidv4();
         //insert into article_table
         insertIntoArticle(id_article, title, author, description);
         for (let i = 0; i < image.length; i++) {
             const image_rows = image[i];
             const image_name: string = uuidv4();
-            
             await insertIntoStorage(image_name, image_rows);
             await insertIntoPhoto(id_article, image_name);
         }
+        return true
+    }else{
+        return false
     }
 }
 
@@ -56,6 +58,9 @@ async function insertIntoStorage(image_name: string, image: any) {
         .from('amb_images')
         .upload(image_name, image)
 
+    if (error) {
+        throw error;
+    }
     return data;
 }
 

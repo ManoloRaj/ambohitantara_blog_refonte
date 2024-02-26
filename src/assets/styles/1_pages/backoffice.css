@@ -7,10 +7,10 @@
 }
 .backoffice .form {
   width: 30%;
-  height: 70vh;
+  height: 75vh;
   background-color: white;
   margin-left: auto;
-  transform: translateY(20%);
+  transform: translateY(15%);
   border-bottom: 7px solid rgb(67, 136, 232);
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.17);
@@ -50,12 +50,17 @@
   color: rgb(0, 152, 228);
   border: 1px rgb(0, 152, 228) solid;
 }
+.backoffice .form .areas button:disabled {
+  background-color: rgb(142, 142, 142);
+  color: rgb(86, 86, 86);
+  border: 1px rgb(117, 117, 117) solid;
+}
 .backoffice .list_review {
   width: 30%;
-  height: 70vh;
+  height: 75vh;
   background-color: white;
   margin-right: auto;
-  transform: translateY(20%);
+  transform: translateY(15%);
   border-bottom: 7px solid rgb(67, 136, 232);
   border-radius: 10px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.17);
@@ -97,8 +102,23 @@
   width: 40px;
   margin-left: -20px;
 }
-.backoffice .list_review .body .item:hover, .backoffice .list_review .body .active {
+.backoffice .list_review .body .item:hover,
+.backoffice .list_review .body .active {
   background-color: rgb(0, 152, 228);
   color: white;
   box-shadow: 0 5px 5px rgba(128, 128, 128, 0.523);
+}
+.backoffice .flash_message {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  background-color: rgb(0, 152, 228);
+  color: white;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.backoffice .error {
+  background-color: rgb(255, 106, 57);
 }/*# sourceMappingURL=backoffice.css.map */

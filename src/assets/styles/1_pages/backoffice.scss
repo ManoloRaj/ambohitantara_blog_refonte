@@ -6,10 +6,10 @@
     gap: 20px;
     .form {
         width: 30%;
-        height: 70vh;
+        height: 75vh;
         background-color: white;
         margin-left: auto;
-        transform: translateY(20%);
+        transform: translateY(15%);
         // padding: 20px;
         border-bottom: 7px solid rgb(67, 136, 232);
         border-radius: 10px;
@@ -50,15 +50,20 @@
                 color: rgb(0, 152, 228);
                 border: 1px rgb(0, 152, 228) solid;
             }
+            button:disabled{
+                background-color: rgb(142, 142, 142);
+                color: rgb(86, 86, 86);
+                border: 1px rgb(117, 117, 117) solid;
+            }
         }
     }
 
     .list_review {
         width: 30%;
-        height: 70vh;
+        height: 75vh;
         background-color: white;
         margin-right: auto;
-        transform: translateY(20%);
+        transform: translateY(15%);
         // padding: 20px;
         border-bottom: 7px solid rgb(67, 136, 232);
         border-radius: 10px;
@@ -99,11 +104,26 @@
                     }
                 }
             }
-            .item:hover, .active {
+            .item:hover,
+            .active {
                 background-color: rgb(0, 152, 228);
                 color: white;
                 box-shadow: 0 5px 5px rgba(128, 128, 128, 0.523);
             }
         }
+    }
+    .flash_message {
+        position: absolute;
+        top:0;
+        padding: 10px;
+        background-color: rgb(0, 152, 228);
+        color : white;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .error{
+        background-color: rgb(255, 106, 57);
     }
 }

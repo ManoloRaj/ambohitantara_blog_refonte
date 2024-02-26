@@ -1,5 +1,5 @@
 "use client";
-import { CarouselArticle, articleInterface } from "./home/carouselArticle";
+import { CarouselArticle, articleInterface } from "./home/carousel_article";
 import { Description, Illustration, Title } from "./home/title";
 import "../assets/styles/1_pages/presentation.css";
 import fleche from "../assets/fleche.png";
@@ -34,7 +34,6 @@ export default function Presentation() {
         getArticleList()
             .then((articles) => {
                 setArticleList(articles);
-                console.log('Article List:', articles);
             })
             .catch((error) => {
                 console.error('Error fetching article list:', error);
@@ -101,7 +100,7 @@ export default function Presentation() {
                     <div className="control">
                         <Image src={fleche} width={170} alt="top" className="but" onClick={handleScrollTop}/>
                         <Image src={fleche} width={170} alt="bottom" style={{ transform: "rotate(180deg)" }} className="but" onClick={handleScrollBottom}/>
-                        
+
                         {detailView.activate &&
                             <Image src={fleche} width={170} alt="bottom" style={{ transform: "rotate(-90deg) translateX(-100px)" }} className="but"
                                 onClick={() => setDetailView((prev_value) => ({ ...prev_value, activate: false }))} />

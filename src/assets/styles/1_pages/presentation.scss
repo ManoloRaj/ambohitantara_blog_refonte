@@ -1,6 +1,7 @@
 @use "../4_variables/variables";
 
 .presentation {
+    color: variables.$general-text-color;
     background: url("../../background.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -124,6 +125,7 @@
                 z-index: 2;
                 cursor: pointer;
                 .slide {
+                    width: 100%;
                     margin-top: auto;
                     margin-bottom: auto;
                     align-items: center;

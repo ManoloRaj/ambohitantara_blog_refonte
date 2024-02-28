@@ -37,7 +37,6 @@ export function Illustration() {
         <div className="illustration">
             <Image
                 src={andrianampoinimerina}
-                width={200}
                 alt="Picture of the author"
                 className="image_illustration"
             />

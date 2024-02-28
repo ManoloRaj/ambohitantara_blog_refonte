@@ -3,7 +3,6 @@
   background: url("../../background.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 50%);
 }
@@ -29,17 +28,19 @@
 }
 .presentation .left .illustration {
   width: 30vw;
-  margin-top: 20%;
   display: grid;
-  grid-template-columns: 50% auto;
+  grid-template-columns: auto auto;
+  border: 1px white solid;
+  background-color: rgba(53, 33, 33, 0.159);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  transform: translateY(200px);
 }
 .presentation .left .illustration .image_illustration {
-  border-radius: 0 10px 10px 0;
-  box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.551);
+  width: 200px;
 }
 .presentation .left .illustration .description {
-  display: grid;
-  grid-template-rows: 50% auto;
+  padding: 10%;
 }
 .presentation .left .illustration .description .content .year {
   color: rgba(255, 255, 255, 0.584);
@@ -53,7 +54,7 @@
 }
 .presentation .left .detail .content_detail {
   margin-top: 10%;
-  font-size: 14px;
+  font-size: 10px;
   text-align: justify;
 }
 .presentation .left .detail .author_detail {

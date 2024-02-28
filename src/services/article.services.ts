@@ -1,7 +1,6 @@
 import { articleInterface } from "@/components/home/carousel_article";
 import supabase from "../lib/supabaseClient";
 import { v4 as uuidv4 } from "uuid";
-import { BlockList } from "net";
 
 export interface articleToAddInterface {
     id?: string,
@@ -14,7 +13,8 @@ export interface articleToAddInterface {
 export async function getArticleList(): Promise<Array<articleInterface> | null> {
     const { data, error } = await supabase
         .from('article')
-        .select();
+        .select('id, title, description, author, images:photo(url)')
+        .returns<Array<articleInterface>>();
 
     if (error) {
         throw error;
@@ -22,13 +22,13 @@ export async function getArticleList(): Promise<Array<articleInterface> | null> 
     return data;
 }
 
-export async function setArticle(props: articleToAddInterface):Promise<boolean> {
+export async function setArticle(props: articleToAddInterface): Promise<boolean> {
     const { title, author, description, image } = props;
 
     if (title && author && description && image) {
         const id_article: string = uuidv4();
         //insert into article_table
-        insertIntoArticle(id_article, title, author, description);
+        await insertIntoArticle(id_article, title, author, description);
         for (let i = 0; i < image.length; i++) {
             const image_rows = image[i];
             const image_name: string = uuidv4();
@@ -36,7 +36,7 @@ export async function setArticle(props: articleToAddInterface):Promise<boolean> 
             await insertIntoPhoto(id_article, image_name);
         }
         return true
-    }else{
+    } else {
         return false
     }
 }
@@ -49,7 +49,8 @@ async function insertIntoArticle(id: string, title: string, author: string, desc
     if (error) {
         throw error;
     }
-    return data;
+    console.log("az", data)
+    return data || { id: "" };
 }
 
 async function insertIntoStorage(image_name: string, image: any) {

@@ -9,26 +9,31 @@ import { article_data } from "../services/article_data";
 import { AuthorDetail, DescriptionDetail, TitleDetail } from "./detail/title_detail";
 import { TransitionFunction } from "./detail/transition";
 import { getArticleList } from "@/services/article.services";
+import { ImageUI } from "./image_ui";
 
 
 export default function Presentation() {
 
-    const [detailView, setDetailView] = useState({
+    const [detailView, setDetailView] = useState<{
+        activate: boolean,
+        title: string,
+        description: string,
+        author: string,
+        images: Array<{ url: string }> | null
+    }>({
         activate: false,
         title: "",
         description: "",
-        author: ""
+        author: "",
+        images: null
     });
 
-    const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
+
     const [articleList, setArticleList] = useState<Array<articleInterface> | null>(null);
 
     const carouselRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        setScrollContainer(document.getElementById('scroll_view'));
-    }, []);
+
 
     useEffect(() => {
         getArticleList()
@@ -38,38 +43,17 @@ export default function Presentation() {
             .catch((error) => {
                 console.error('Error fetching article list:', error);
             });
-    }, [])
+    }, [detailView.activate])
 
-    const handleScrollTop = () => {
-        setCurrentIndex((prevIndex) => {
-            const newIndex = Math.max(0, prevIndex - 1);
-            const targetElement = document.getElementById(`slide_${newIndex}`);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-            return newIndex;
-        });
-    };
 
-    const handleScrollBottom = () => {
-        if (articleList) {
-            setCurrentIndex((prevIndex) => {
-                const newIndex = Math.min(articleList.length - 1, prevIndex + 1);
-                const targetElement = document.getElementById(`slide_${newIndex}`);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-                return newIndex;
-            });
-        }
-    };
 
     const handleClickItem = (d: articleInterface) => {
         setDetailView({
             activate: !detailView.activate,
             title: d.title,
             description: d.description,
-            author: d.author
+            author: d.author,
+            images: d.images
         })
     }
 
@@ -86,7 +70,6 @@ export default function Presentation() {
                             </div>
                             <Illustration />
                         </>
-
                     ) : (
                         <div className="detail">
                             <TitleDetail title={detailView.title} />
@@ -98,16 +81,17 @@ export default function Presentation() {
                 </div>
                 <div className="right">
                     <div className="control">
-                        <Image src={fleche} width={170} alt="top" className="but" onClick={handleScrollTop}/>
-                        <Image src={fleche} width={170} alt="bottom" style={{ transform: "rotate(180deg)" }} className="but" onClick={handleScrollBottom}/>
-
                         {detailView.activate &&
-                            <Image src={fleche} width={170} alt="bottom" style={{ transform: "rotate(-90deg) translateX(-100px)" }} className="but"
+                            <ImageUI isLocal={true} src={fleche.src} width={170} height={fleche.height} alt="bottom" style={{ transform: "rotate(-90deg) translateX(-500px)" }} className="but"
                                 onClick={() => setDetailView((prev_value) => ({ ...prev_value, activate: false }))} />
                         }
                     </div>
                     <div ref={carouselRef}>
-                        <CarouselArticle article_list={article_data} handleClickItem={handleClickItem} isDetail={!detailView.activate} />
+                        {!detailView.activate ? (
+                            <CarouselArticle listData={articleList} handleClickItem={handleClickItem} isDetail={false} />
+                        ) : (
+                            <CarouselArticle listData={detailView.images} handleClickItem={handleClickItem} isDetail={true} />
+                        )}
                     </div>
                 </div>
             </div>

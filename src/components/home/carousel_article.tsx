@@ -86,19 +86,28 @@ export const CarouselArticle: React.FC<carouselArticlePropsInterface> = ({
       {
         listData !== null &&
         listData.length > 0 &&
-        <div className="carousel" id="scroll_view">
-          {listData.map((d, _index) => (
-            <div key={_index} className="carousel_slide" onClick={() => !isDetail && handleClickItem(d)} id={`slide_${_index}`} >
-              {('images' in d) && d.images.length > 0 ? (
-                <ImageUI isLocal={false} width={300} height={300} alt="" src={!isDetail ? d.images[0].url : ''} className="slide" />
-              ) : (
-                <ImageUI isLocal={false} width={300} height={300} alt="" src={('url' in d) ? d.url : ''} className="slide" />
-              )}
-              {!isDetail ? (<Legend title={('images' in d) ? d.title : ''} />) : null}
-            </div>
-          ))}
-        </div>
+        <>
+          <div className="carousel" id="scroll_view">
+            {listData.map((d, _index) => (
+              <div key={_index} className="carousel_slide" onClick={() => !isDetail && handleClickItem(d)} id={`slide_${_index}`} >
+                {('images' in d) && d.images.length > 0 ? (
+                  <ImageUI isLocal={false} width={300} height={300} alt="" src={!isDetail ? d.images[0].url : ''} className="slide" />
+                ) : (
+                  <ImageUI isLocal={false} width={300} height={300} alt="" src={('url' in d) ? d.url : ''} className="slide" />
+                )}
+                {!isDetail ? (<Legend title={('images' in d) ? d.title : ''} />) : null}
+              </div>
+            ))}
+          </div>
+        </>
       }
+      <div className="carousel_pagination">
+        {currentIndex + 1}
+        :{listData?.length}
+      </div>
+
+
+
     </>
   );
 };

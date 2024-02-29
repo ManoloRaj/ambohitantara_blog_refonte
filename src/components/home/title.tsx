@@ -1,5 +1,7 @@
 import Image from "next/image"
 import andrianampoinimerina from "../../assets/andrianampoinimerina.webp"
+import presentation from "@/constants/description"
+
 
 export function Title() {
     return (
@@ -18,10 +20,7 @@ export function Description() {
             </div>
             <div className="little_description">
                 <div className="text">
-                    Create in April 2023,
-                    Ambohitantara is a Blog that
-                    share history of Madagascar
-                    especially in Imerina
+                    {presentation}
                 </div>
 
                 <div className="little_label">

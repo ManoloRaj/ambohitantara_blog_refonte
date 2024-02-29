@@ -1,0 +1,3 @@
+const presentation: string = "Inaugurated in the vibrant month of April in the year 2023, Ambohitantara emerges as a thoughtfully curated and engaging blog, passionately committed to the dissemination of historical knowledge pertaining to the captivating island of Madagascar. Its primary emphasis lies in unraveling the intricate threads of history, with a specialized focus on the culturally significant and historically resonant landscapes of Imerina, providing readers with an immersive exploration of the island's past, fostering a deeper understanding and appreciation for Madagascar's rich heritage.";
+
+export default presentation;

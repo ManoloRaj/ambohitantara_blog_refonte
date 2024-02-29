@@ -121,4 +121,22 @@
 }
 .backoffice .error {
   background-color: rgb(255, 106, 57);
+}
+
+@media only screen and (max-width: 800px) {
+  .backoffice {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgba(147, 129, 131, 0.2431372549);
+    background-size: cover;
+    display: grid;
+    width: 100vw;
+    padding-bottom: 200px;
+  }
+  .backoffice .form, .backoffice .list_review {
+    width: 70%;
+    height: 75vh;
+    background-color: white;
+    margin: auto;
+  }
 }/*# sourceMappingURL=backoffice.css.map */

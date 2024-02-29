@@ -5,3 +5,37 @@ $title-size: 60px;
 $general-text-color: white;
 $carousel-border-color: white;
 $dark-white-color: rgba(255, 255, 255, 0.584);
+
+::-webkit-scrollbar {
+    width: 7px;
+    box-shadow: 0px 0px 10px white;
+    border: white solid 2px;
+    border-radius: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(120 106 107);
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px white;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px white;
+}
+
+/* Firefox */
+::-moz-scrollbar {
+   width: 7px;
+}
+
+::-moz-scrollbar-thumb {
+    background-color: rgb(120 106 107);
+    border-radius: 6px;
+}
+
+::-moz-scrollbar-track {
+    background-color: #f0f0f0;
+    border-radius: 6px;
+}

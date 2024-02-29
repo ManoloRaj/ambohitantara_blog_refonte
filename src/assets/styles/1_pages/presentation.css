@@ -1,3 +1,37 @@
+::-webkit-scrollbar {
+  width: 7px;
+  box-shadow: 0px 0px 10px white;
+  border: white solid 2px;
+  border-radius: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(120, 106, 107);
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px white;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px white;
+}
+
+/* Firefox */
+::-moz-scrollbar {
+  width: 7px;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: rgb(120, 106, 107);
+  border-radius: 6px;
+}
+
+::-moz-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+}
+
 .presentation {
   color: white;
   background: url("../../background.png");
@@ -7,18 +41,17 @@
   grid-template-columns: repeat(2, 50%);
 }
 .presentation .left .title {
-  margin: 10%;
+  text-align: justify;
+  margin: 15% auto auto 15%;
 }
 .presentation .left .title .label {
-  margin-left: 10%;
   font-size: 60px;
   margin-bottom: 30px;
 }
 .presentation .left .title .legend_title {
-  margin-left: 10%;
   display: grid;
   grid-template-columns: 15% auto;
-  width: 30vw;
+  width: 100%;
 }
 .presentation .left .title .legend_title .year {
   color: rgba(255, 255, 255, 0.584);
@@ -27,20 +60,23 @@
   font-size: 20px;
 }
 .presentation .left .illustration {
-  width: 30vw;
+  margin: 5% 0px auto 15%;
   display: grid;
   grid-template-columns: auto auto;
-  border: 1px white solid;
   background-color: rgba(53, 33, 33, 0.159);
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
-  transform: translateY(200px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  cursor: pointer;
 }
 .presentation .left .illustration .image_illustration {
-  width: 200px;
+  width: 70%;
 }
 .presentation .left .illustration .description {
-  padding: 10%;
+  width: 100%;
+  padding: 10% auto 10% 5px;
+}
+.presentation .left .illustration .description .title_description {
+  font-size: 17px;
 }
 .presentation .left .illustration .description .content .year {
   color: rgba(255, 255, 255, 0.584);
@@ -48,12 +84,20 @@
 .presentation .left .detail {
   margin: 10%;
   width: 70%;
+  height: 80vh;
+  overflow-y: scroll;
 }
 .presentation .left .detail .title_detail {
   font-size: 40px;
+  position: sticky;
+  top: 0;
+  background-color: rgba(120, 106, 107, 0.323);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
 }
 .presentation .left .detail .content_detail {
   margin-top: 10%;
+  padding-right: 20px;
   font-size: 10px;
   text-align: justify;
 }
@@ -127,11 +171,28 @@
 .presentation .right .carousel .carousel_slide:hover .slide {
   transform: scale(1.5);
 }
+.presentation .right .carousel_pagination {
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  width: 100px;
+  background-color: rgba(224, 224, 224, 0.093);
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.601);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1200px) {
   .presentation {
-    overflow: scroll;
-    width: 100vw;
-    height: 100vh;
+    color: white;
+    background: url("../../background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: hidden;
+    content: "something went wrong";
   }
 }/*# sourceMappingURL=presentation.css.map */

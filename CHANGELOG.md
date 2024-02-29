@@ -1,5 +1,6 @@
 Feat[0.1.5]
 *AT-08 : Detail in front Office(https://github.com/ManoloRaj/ambohitantara_blog_refonte/pull/14)
+*AT-09 : Manage responsive design
 
 Feat[0.1.4]
 *AT-03 : Backend and link (https://github.com/ManoloRaj/ambohitantara_blog_refonte/pull/12)

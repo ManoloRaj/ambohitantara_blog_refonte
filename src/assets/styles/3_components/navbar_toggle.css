@@ -2,12 +2,10 @@
   display: grid;
   width: -moz-min-content;
   width: min-content;
-  border: solid white 1px;
   width: 70px;
   height: 70px;
   padding: 10px 10px 20px 10px;
   cursor: pointer;
-  box-shadow: 5px 1px 5px rgb(38, 38, 38);
   position: absolute;
   margin: 3px;
   z-index: 999999;

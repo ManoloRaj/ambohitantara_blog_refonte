@@ -1,12 +1,12 @@
 .navbar_button {
     display: grid;
     width: min-content;
-    border: solid white 1px;
+    // border: solid rgb(135, 135, 135) 1px;
     width: 70px;
     height: 70px;
     padding: 10px 10px 20px 10px;
     cursor: pointer;
-    box-shadow: 5px 1px 5px rgb(38, 38, 38);
+    // box-shadow: 5px 1px 5px rgba(38, 38, 38, 0.515);
     position: absolute;
     margin: 3px;
     z-index: 999999;

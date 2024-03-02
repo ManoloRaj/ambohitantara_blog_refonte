@@ -18,14 +18,14 @@ export default function Navbar() {
     return (
         <>
             <div className="navbar_button" onClick={() => setShow(!show)}>
-                {['_', '_', '_'].map((render) => (
-                    <div className="el">
+                {['_', '_', '_'].map((render, _index) => (
+                    <div className="el" key={_index}>
                     </div>
                 ))}
             </div>
             <div className={show ? "navbar_menu" : "navbar_menu transition_style"}>
                 {['Home', 'About Ambohitantara', 'Contact'].map((result, _index) => (
-                    <div className={_index === 0 ? "el active" : "el"}>
+                    <div className={_index === 0 ? "el active" : "el"} key={_index}>
                         {result}
                     </div>
                 ))}

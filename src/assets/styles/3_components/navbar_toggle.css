@@ -12,7 +12,7 @@
   background-color: rgba(61, 50, 49, 0.508);
 }
 .navbar_button .el {
-  border-bottom: solid white 1px;
+  border-bottom: solid white 2px;
 }
 
 .navbar_menu {
@@ -23,7 +23,7 @@
   background-color: rgba(61, 50, 49, 0.23);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  font-size: 30px;
+  font-size: 25px;
   padding-top: 10%;
   color: white;
   transition: 1.5s;
@@ -31,11 +31,11 @@
 .navbar_menu .el {
   cursor: pointer;
   padding: 20px;
-  border-bottom: solid white 1px;
-  background-color: rgba(61, 50, 49, 0.492);
+  background-image: linear-gradient(to right, rgba(61, 50, 49, 0), rgba(61, 50, 49, 0.93));
   transition: 0, 25s;
 }
 .navbar_menu .active, .navbar_menu .el:hover {
+  text-decoration: underline;
   background-color: rgba(61, 50, 49, 0.929);
 }
 

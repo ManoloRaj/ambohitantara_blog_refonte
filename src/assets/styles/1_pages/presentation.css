@@ -87,6 +87,7 @@
 }
 .presentation .left .detail .title_detail {
   font-size: 40px;
+  padding-right: 20px;
   position: sticky;
   top: 0;
   background-color: rgba(120, 106, 107, 0.323);

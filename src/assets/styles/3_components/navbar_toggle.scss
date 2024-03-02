@@ -1,0 +1,45 @@
+.navbar_button {
+    display: grid;
+    width: min-content;
+    // border: solid rgb(135, 135, 135) 1px;
+    width: 70px;
+    height: 70px;
+    padding: 10px 10px 20px 10px;
+    cursor: pointer;
+    // box-shadow: 5px 1px 5px rgba(38, 38, 38, 0.515);
+    position: absolute;
+    margin: 3px;
+    z-index: 999999;
+    background-color: rgba(61, 50, 49, 0.508);
+    .el {
+        border-bottom: solid white 2px;
+    }
+}
+.navbar_menu {
+    z-index: 99999;
+    position: absolute;
+    height: 100vh;
+    width: 30vw;
+    background-color: rgba(61, 50, 49, 0.23);
+    backdrop-filter: blur(10px);
+    font-size: 25px;
+    padding-top: 10%;
+    color: white;
+    transition: 1.5s;
+    .el {
+        cursor: pointer;
+        padding: 20px;
+        // border-bottom: solid white 1px;
+        background-image:linear-gradient(to right, rgba(61, 50, 49, 0), rgba(61, 50, 49, 0.93)) ;
+        transition: 0, 25s;
+    }
+    .active, .el:hover {
+        text-decoration: underline;
+        background-color: rgba(61, 50, 49, 0.929);
+    }
+}
+.transition_style {
+    transition: 1.5s;
+    transform: translateX(-100%);
+    overflow: hidden;
+}

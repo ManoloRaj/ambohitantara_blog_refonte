@@ -1,7 +1,8 @@
 {
   "name": "ambohitantara_blog",
   "version": "0.1.5",
-  "private": true,
+  "private": false,
+  "homepage" : "https://ambohitantara-blog.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -38,11 +38,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: "14"  # Adjust to the desired Node.js version
+          node-version: "20.10"  # Adjust to the desired Node.js version
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-          static_site_generator: next
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
       - name: Restore cache
         uses: actions/cache@v2
         with:
